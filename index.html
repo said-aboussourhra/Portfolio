@@ -1881,18 +1881,45 @@
 
 
 
-<!-- Remplacez l'ancien bouton par celui-ci -->
-<a href="https://raw.githubusercontent.com/said-aboussourhra/Portfolio/main/Said_Aboussourha_CV.pdf"
-   download="Said_Aboussourhra_CV.pdf"
-   class="btn-primary"
-   id="cvBtn">
+<a href="Said_Aboussourha_CV.pdf" id="cvBtn" class="btn-primary">
     <i class="fas fa-download"></i>
     Télécharger CV
 </a>
+
+<script>
+document.getElementById('cvBtn').addEventListener('click', function(e) {
+    e.preventDefault();
     
+    // إنشاء رابط وهمي للتحميل
+    const link = document.createElement('a');
+    link.href = 'Said_Aboussourha_CV.pdf';  // ← صحح الاسم هنا
+    link.download = 'Said_Aboussourha_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // إظهار إشعار التحميل
+    const toast = document.getElementById('downloadToast');
+    if (toast) {
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    }
+});
+</script>
+
+<!-- إشعار التحميل -->
+<div class="download-toast" id="downloadToast">
+    <div class="download-toast-icon"><i class="fas fa-check"></i></div>
+    <div>
+        <div class="download-toast-text">CV Téléchargé ! ✅</div>
+        <div class="download-toast-sub">Said_Aboussourhra_CV.pdf enregistré</div>
+    </div>
     <button class="download-toast-close" onclick="document.getElementById('downloadToast').classList.remove('show')">
         <i class="fas fa-times"></i>
     </button>
+
 </div>
 
 <div class="particles" id="particles"></div>
