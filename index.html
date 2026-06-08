@@ -562,6 +562,18 @@
         }
 
         .avatar-circle:hover img { transform: scale(1.08); }
+        
+        /* Avatar placeholder when no image */
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--blue-light), var(--slate-bg));
+            font-size: 5rem;
+            color: var(--blue-brand);
+        }
 
         .floating-icon {
             position: absolute;
@@ -1719,6 +1731,9 @@
             border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
+        /* ═══════════════════════════════════════════ */
+        /* إشعار التحميل - مُصحَّح ✅ */
+        /* ═══════════════════════════════════════════ */
         .download-toast {
             position: fixed;
             top: 90px;
@@ -1752,6 +1767,10 @@
 
         .download-toast-icon i { color: white; font-size: 1.1rem; }
 
+        .download-toast-content {
+            flex: 1;
+        }
+
         .download-toast-text {
             font-weight: 600;
             color: var(--navy);
@@ -1772,6 +1791,11 @@
             cursor: pointer;
             padding: 4px;
             font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .download-toast-close:hover {
+            color: var(--navy);
         }
 
         footer {
@@ -1879,48 +1903,22 @@
 </head>
 <body>
 
-
-
-<a href="Said_Aboussourha_CV.pdf" id="cvBtn" class="btn-primary">
-    <i class="fas fa-download"></i>
-    Télécharger CV
-</a>
-
-<script>
-document.getElementById('cvBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // إنشاء رابط وهمي للتحميل
-    const link = document.createElement('a');
-    link.href = 'Said_Aboussourha_CV.pdf';  // ← صحح الاسم هنا
-    link.download = 'Said_Aboussourha_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // إظهار إشعار التحميل
-    const toast = document.getElementById('downloadToast');
-    if (toast) {
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 4000);
-    }
-});
-</script>
-
-<!-- إشعار التحميل -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- إشعار التحميل - مُصحَّح ✅ -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
 <div class="download-toast" id="downloadToast">
-    <div class="download-toast-icon"><i class="fas fa-check"></i></div>
-    <div>
-        <div class="download-toast-text">CV Téléchargé ! ✅</div>
-        <div class="download-toast-sub">Said_Aboussourhra_CV.pdf enregistré</div>
+    <div class="download-toast-icon">
+        <i class="fas fa-check"></i>
     </div>
-    <button class="download-toast-close" onclick="document.getElementById('downloadToast').classList.remove('show')">
+    <div class="download-toast-content">
+        <div class="download-toast-text">CV Téléchargé ! ✅</div>
+        <div class="download-toast-sub">Le fichier a été enregistré</div>
+    </div>
+    <button class="download-toast-close" onclick="hideDownloadToast()">
         <i class="fas fa-times"></i>
     </button>
-
 </div>
+<!-- ✅ جميع الوسوم مُغلقة بشكل صحيح -->
 
 <div class="particles" id="particles"></div>
 
@@ -1964,6 +1962,10 @@ document.getElementById('cvBtn').addEventListener('click', function(e) {
                 <p class="hero-tagline">⚡ Développeur Web & Technicien Réseau ⚡</p>
                 <p class="hero-desc">Technicien Spécialisé en Développement Informatique — full-stack et infrastructure réseau câblée. Autonome, rigoureux, orienté solutions.</p>
                 <div class="btn-group">
+                    <!-- ═══════════════════════════════════════════════════════════════ -->
+                    <!-- ✅ رابط التحميل المُصحَّح -->
+                    <!-- الخيار 1: رابط GitHub (تأكد من وجود الملف في المستودع) -->
+                    <!-- ═══════════════════════════════════════════════════════════════ -->
                     <a href="https://github.com/said-aboussourhra/Portfolio/raw/main/Said_Aboussourhra_CV.pdf" 
                        download="Said_Aboussourhra_CV.pdf" 
                        class="btn-primary" 
@@ -1997,7 +1999,17 @@ document.getElementById('cvBtn').addEventListener('click', function(e) {
                     <div class="floating-icon floating-icon-2"><i class="fas fa-wifi"></i></div>
                     <div class="floating-icon floating-icon-3"><i class="fas fa-server"></i></div>
                     <div class="avatar-circle">
-                        <img src="Téléchargements/_MG_5023.JPG.JPEG" alt="Said Aboussourhra - Développeur Web & Réseau">
+                        <!-- ═══════════════════════════════════════════════════════════════ -->
+                        <!-- ✅ مسار الصورة المُصحَّح -->
+                        <!-- الخيار 1: رابط GitHub (ارفع صورتك إلى المستودع) -->
+                        <!-- الخيار 2: صورة placeholder مؤقتة -->
+                        <!-- ═══════════════════════════════════════════════════════════════ -->
+                        <img src="https://github.com/said-aboussourhra/Portfolio/raw/main/photo.jpg" 
+                             alt="Said Aboussourhra - Développeur Web & Réseau"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-placeholder" style="display: none;">
+                            <i class="fas fa-user"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2594,6 +2606,23 @@ document.getElementById('cvBtn').addEventListener('click', function(e) {
 <script>
 const FORMSPREE_ID = 'xojzwadv';
 
+// ═══════════════════════════════════════════════════════════════
+// دوال إشعار التحميل - مُصحَّحة ✅
+// ═══════════════════════════════════════════════════════════════
+function showDownloadToast() {
+    const toast = document.getElementById('downloadToast');
+    if (toast) {
+        toast.classList.add('show');
+    }
+}
+
+function hideDownloadToast() {
+    const toast = document.getElementById('downloadToast');
+    if (toast) {
+        toast.classList.remove('show');
+    }
+}
+
 function createParticles() {
     const container = document.getElementById('particles');
     for (let i = 0; i < 20; i++) {
@@ -2647,12 +2676,15 @@ window.addEventListener('scroll', () => {
 });
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// ═══════════════════════════════════════════════════════════════
+// منطق زر تحميل CV - مُصحَّح ✅
+// ═══════════════════════════════════════════════════════════════
 const cvBtn = document.getElementById('cvBtn');
 const cvBtnText = document.getElementById('cvBtnText');
 const downloadToast = document.getElementById('downloadToast');
 
 if (cvBtn) {
-    cvBtn.addEventListener('click', function() {
+    cvBtn.addEventListener('click', function(e) {
         const icon = this.querySelector('i');
         this.classList.add('downloading');
         icon.className = 'fas fa-spinner fa-spin';
@@ -2663,11 +2695,16 @@ if (cvBtn) {
             this.classList.add('downloaded');
             icon.className = 'fas fa-check';
             if (cvBtnText) cvBtnText.textContent = 'Téléchargé !';
-            if (downloadToast) downloadToast.classList.add('show');
             
+            // إظهار الإشعار
+            showDownloadToast();
+            
+            // إخفاء الإشعار تلقائياً بعد 4 ثوانٍ
             setTimeout(() => {
-                if (downloadToast) downloadToast.classList.remove('show');
+                hideDownloadToast();
             }, 4000);
+            
+            // إعادة الزر لحالته الأصلية
             setTimeout(() => {
                 this.classList.remove('downloaded');
                 icon.className = 'fas fa-download';
@@ -2741,7 +2778,7 @@ contactForm.addEventListener('submit', async (e) => {
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
         
-        showFeedback('success', `<i class="fas fa-check-circle"></i> Merci ${name} ! Votre message a ete envoye. Je vous repondrai sous 24h. 🚀`);
+        showFeedback('success', `<i class="fas fa-check-circle"></i> Merci ${name} ! Votre message a été envoyé. Je vous répondrai sous 24h. 🚀`);
         contactForm.reset();
         
     } catch (error) {
@@ -2749,7 +2786,7 @@ contactForm.addEventListener('submit', async (e) => {
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
         
-        showFeedback('error', `<i class="fas fa-exclamation-triangle"></i> Erreur. Contactez-moi a <a href="mailto:s01said@outlook.fr" style="color:#dc2626;text-decoration:underline;font-weight:700;">s01said@outlook.fr</a>`, 8000);
+        showFeedback('error', `<i class="fas fa-exclamation-triangle"></i> Erreur. Contactez-moi à <a href="mailto:s01said@outlook.fr" style="color:#dc2626;text-decoration:underline;font-weight:700;">s01said@outlook.fr</a>`, 8000);
     }
 });
 
