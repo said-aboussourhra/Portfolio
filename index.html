@@ -1264,6 +1264,451 @@
             .projects { padding: 112px 0; }
         }
 
+        /* ═══════════════════════════════════════════════════════════════ */
+        /* Project Showcase - التصميم الجديد المطور */
+        /* ═══════════════════════════════════════════════════════════════ */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 1px solid var(--blue-light);
+            box-shadow: 0 15px 50px -10px rgba(37, 99, 235, 0.08);
+            margin-bottom: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-showcase:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 70px -15px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        @media (min-width: 1024px) {
+            .project-showcase {
+                grid-template-columns: 1fr 1fr;
+            }
+            .project-showcase.reverse {
+                direction: rtl;
+            }
+            .project-showcase.reverse > * {
+                direction: ltr;
+            }
+        }
+
+        .project-showcase-image {
+            position: relative;
+            min-height: 300px;
+            background: linear-gradient(135deg, var(--blue-brand), var(--indigo));
+            overflow: hidden;
+        }
+
+        .project-showcase.reverse .project-showcase-image {
+            background: linear-gradient(135deg, var(--purple), var(--violet));
+        }
+
+        .project-showcase:nth-child(3) .project-showcase-image {
+            background: linear-gradient(135deg, var(--indigo), var(--purple));
+        }
+
+        .project-showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-showcase:hover .project-showcase-image img {
+            transform: scale(1.05);
+        }
+
+        .project-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
+            color: white;
+            gap: 16px;
+            background: linear-gradient(135deg, var(--blue-brand), var(--indigo));
+        }
+
+        .project-image-placeholder.purple {
+            background: linear-gradient(135deg, var(--purple), var(--violet));
+        }
+
+        .project-image-placeholder.indigo {
+            background: linear-gradient(135deg, var(--indigo), var(--purple));
+        }
+
+        .project-image-placeholder i {
+            font-size: 4rem;
+            opacity: 0.9;
+        }
+
+        .project-image-placeholder span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-showcase:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay-btn {
+            width: 56px;
+            height: 56px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-showcase:hover .project-overlay-btn {
+            transform: translateY(0);
+        }
+
+        .project-overlay-btn:hover {
+            background: var(--blue-brand);
+            color: white;
+            transform: scale(1.1) !important;
+        }
+
+        .project-badge-status {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--blue-brand);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-badge-status.success {
+            color: #16a34a;
+        }
+
+        .project-badge-status i {
+            font-size: 0.9rem;
+        }
+
+        .project-showcase-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .project-showcase-content {
+                padding: 40px;
+            }
+        }
+
+        .project-showcase-header {
+            margin-bottom: 20px;
+        }
+
+        .project-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--blue-light);
+            color: var(--blue-brand);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .project-category.purple {
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--purple);
+        }
+
+        .project-category.indigo {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--indigo);
+        }
+
+        .project-showcase-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .project-showcase-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        .project-showcase-title i {
+            color: var(--blue-brand);
+            font-size: 1.4rem;
+        }
+
+        .project-showcase-title.purple i {
+            color: var(--purple);
+        }
+
+        .project-showcase-title.indigo i {
+            color: var(--indigo);
+        }
+
+        .project-showcase-desc {
+            color: var(--slate-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 480px) {
+            .project-features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--slate-mid);
+        }
+
+        .project-feature i {
+            color: #22c55e;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--slate-border);
+        }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .tech-badge.php {
+            background: rgba(119, 123, 179, 0.15);
+            color: #777BB4;
+        }
+
+        .tech-badge.mysql {
+            background: rgba(0, 117, 143, 0.15);
+            color: #00758F;
+        }
+
+        .tech-badge.html {
+            background: rgba(227, 79, 38, 0.15);
+            color: #E34F26;
+        }
+
+        .tech-badge.css {
+            background: rgba(21, 114, 182, 0.15);
+            color: #1572B6;
+        }
+
+        .tech-badge.js {
+            background: rgba(247, 223, 30, 0.2);
+            color: #b8a400;
+        }
+
+        .tech-badge.bootstrap {
+            background: rgba(121, 82, 179, 0.15);
+            color: #7952B3;
+        }
+
+        .tech-badge.ajax {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--blue-brand);
+        }
+
+        .tech-badge.pdf {
+            background: rgba(239, 68, 68, 0.15);
+            color: #dc2626;
+        }
+
+        .project-showcase-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: auto;
+        }
+
+        .btn-project-demo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--blue-brand), var(--indigo));
+            color: white;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-project-demo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-project-demo.purple {
+            background: linear-gradient(135deg, var(--purple), var(--violet));
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+        }
+
+        .btn-project-demo.purple:hover {
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.35);
+        }
+
+        .btn-project-demo.indigo {
+            background: linear-gradient(135deg, var(--indigo), var(--purple));
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.25);
+        }
+
+        .btn-project-demo.indigo:hover {
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.35);
+        }
+
+        .btn-project-code {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--slate-mid);
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 2px solid var(--slate-border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-project-code:hover {
+            background: var(--slate-bg);
+            border-color: var(--slate-mid);
+            transform: translateY(-2px);
+        }
+
+        /* Projects CTA */
+        .projects-cta {
+            background: linear-gradient(135deg, var(--blue-brand), var(--indigo));
+            border-radius: 2rem;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .projects-cta {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 48px 56px;
+            }
+        }
+
+        .projects-cta-content h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .projects-cta-content h3 {
+                justify-content: flex-start;
+                font-size: 1.7rem;
+            }
+        }
+
+        .projects-cta-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+        }
+
+        .projects-cta .btn-primary {
+            background: white;
+            color: var(--blue-brand);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .projects-cta .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Legacy styles for compatibility */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1904,7 +2349,7 @@
 <body>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- إشعار التحميل -->
+<!-- إشعار التحميل - مُصحَّح ✅ -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <div class="download-toast" id="downloadToast">
     <div class="download-toast-icon">
@@ -1918,6 +2363,7 @@
         <i class="fas fa-times"></i>
     </button>
 </div>
+<!-- ✅ جميع الوسوم مُغلقة بشكل صحيح -->
 
 <div class="particles" id="particles"></div>
 
@@ -1961,12 +2407,15 @@
                 <p class="hero-tagline">⚡ Développeur Web & Technicien Réseau ⚡</p>
                 <p class="hero-desc">Technicien Spécialisé en Développement Informatique — full-stack et infrastructure réseau câblée. Autonome, rigoureux, orienté solutions.</p>
                 <div class="btn-group">
-                    <!-- ✅ الرابط المصحح - نسبي وليس GitHub raw -->
-                    <a href="https://said-aboussourhra.github.io/Portfolio/Said_Aboussourhra_CV.pdf"
-                       download="Said_Aboussourhra_CV.pdf"
-                       class="btn-primary"
+                    <!-- ═══════════════════════════════════════════════════════════════ -->
+                    <!-- ✅ رابط التحميل المُصحَّح -->
+                    <!-- الخيار 1: رابط GitHub (تأكد من وجود الملف في المستودع) -->
+                    <!-- ═══════════════════════════════════════════════════════════════ -->
+                    <a href="https://github.com/said-aboussourhra/Portfolio/raw/main/Said_Aboussourhra_CV.pdf" 
+                       download="Said_Aboussourhra_CV.pdf" 
+                       class="btn-primary" 
                        id="cvBtn">
-                        <i class="fas fa-download"></i>
+                        <i class="fas fa-download"></i> 
                         <span id="cvBtnText">Télécharger CV</span>
                     </a>
                     <a href="#contact" class="btn-outline">
@@ -1995,7 +2444,12 @@
                     <div class="floating-icon floating-icon-2"><i class="fas fa-wifi"></i></div>
                     <div class="floating-icon floating-icon-3"><i class="fas fa-server"></i></div>
                     <div class="avatar-circle">
-                        <img src="https://github.com/said-aboussourhra/Portfolio/raw/main/photo.jpg"
+                        <!-- ═══════════════════════════════════════════════════════════════ -->
+                        <!-- ✅ مسار الصورة المُصحَّح -->
+                        <!-- الخيار 1: رابط GitHub (ارفع صورتك إلى المستودع) -->
+                        <!-- الخيار 2: صورة placeholder مؤقتة -->
+                        <!-- ═══════════════════════════════════════════════════════════════ -->
+                        <img src="https://github.com/said-aboussourhra/Portfolio/raw/main/photo.jpg" 
                              alt="Said Aboussourhra - Développeur Web & Réseau"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="avatar-placeholder" style="display: none;">
@@ -2026,8 +2480,8 @@
                 <span class="about-badge about-badge-rare"><i class="fas fa-fire"></i> Profil Rare</span>
             </div>
             <p class="about-text">
-                Je transforme les problèmes en code avec une double compétence : développement web full-stack
-                (HTML/CSS/JS, PHP, MySQL) et infrastructure réseau (câblage structuré, Linux, équipements actifs).
+                Je transforme les problèmes en code avec une double compétence : développement web full-stack 
+                (HTML/CSS/JS, PHP, MySQL) et infrastructure réseau (câblage structuré, Linux, équipements actifs). 
                 Rigoureux et passionné, j'assure des solutions robustes de la couche physique à l'interface utilisateur.
             </p>
             <div class="about-highlights">
@@ -2068,35 +2522,50 @@
                 </div>
                 <div class="skill-item" data-percent="90">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-html5"></i></span><span class="skill-label">HTML5</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-html5"></i></span>
+                            <span class="skill-label">HTML5</span>
+                        </div>
                         <span class="skill-percent">90%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill"></div></div>
                 </div>
                 <div class="skill-item" data-percent="85">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-css3-alt"></i></span><span class="skill-label">CSS3</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-css3-alt"></i></span>
+                            <span class="skill-label">CSS3</span>
+                        </div>
                         <span class="skill-percent">85%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill"></div></div>
                 </div>
                 <div class="skill-item" data-percent="80">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-js"></i></span><span class="skill-label">JavaScript</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-js"></i></span>
+                            <span class="skill-label">JavaScript</span>
+                        </div>
                         <span class="skill-percent">80%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill"></div></div>
                 </div>
                 <div class="skill-item" data-percent="75">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-php"></i></span><span class="skill-label">PHP</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-php"></i></span>
+                            <span class="skill-label">PHP</span>
+                        </div>
                         <span class="skill-percent">75%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill"></div></div>
                 </div>
                 <div class="skill-item" data-percent="70">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fas fa-database"></i></span><span class="skill-label">MySQL</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fas fa-database"></i></span>
+                            <span class="skill-label">MySQL</span>
+                        </div>
                         <span class="skill-percent">70%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill"></div></div>
@@ -2110,28 +2579,40 @@
                 </div>
                 <div class="skill-item" data-percent="75">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-linux"></i></span><span class="skill-label">Linux</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-linux"></i></span>
+                            <span class="skill-label">Linux</span>
+                        </div>
                         <span class="skill-percent">75%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill purple"></div></div>
                 </div>
                 <div class="skill-item" data-percent="70">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-windows"></i></span><span class="skill-label">Windows Server</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-windows"></i></span>
+                            <span class="skill-label">Windows Server</span>
+                        </div>
                         <span class="skill-percent">70%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill purple"></div></div>
                 </div>
                 <div class="skill-item" data-percent="85">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fas fa-plug"></i></span><span class="skill-label">Câblage Structuré</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fas fa-plug"></i></span>
+                            <span class="skill-label">Câblage Structuré</span>
+                        </div>
                         <span class="skill-percent">85%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill purple"></div></div>
                 </div>
                 <div class="skill-item" data-percent="80">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fas fa-shield-alt"></i></span><span class="skill-label">TCP/IP / DNS / DHCP</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fas fa-shield-alt"></i></span>
+                            <span class="skill-label">TCP/IP / DNS / DHCP</span>
+                        </div>
                         <span class="skill-percent">80%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill purple"></div></div>
@@ -2145,21 +2626,30 @@
                 </div>
                 <div class="skill-item" data-percent="80">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fab fa-git-alt"></i></span><span class="skill-label">Git/GitHub</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fab fa-git-alt"></i></span>
+                            <span class="skill-label">Git/GitHub</span>
+                        </div>
                         <span class="skill-percent">80%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill violet"></div></div>
                 </div>
                 <div class="skill-item" data-percent="90">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fas fa-code"></i></span><span class="skill-label">VS Code</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fas fa-code"></i></span>
+                            <span class="skill-label">VS Code</span>
+                        </div>
                         <span class="skill-percent">90%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill violet"></div></div>
                 </div>
                 <div class="skill-item" data-percent="65">
                     <div class="skill-info">
-                        <div class="skill-name"><span class="skill-icon"><i class="fas fa-drafting-compass"></i></span><span class="skill-label">AutoCAD</span></div>
+                        <div class="skill-name">
+                            <span class="skill-icon"><i class="fas fa-drafting-compass"></i></span>
+                            <span class="skill-label">AutoCAD</span>
+                        </div>
                         <span class="skill-percent">65%</span>
                     </div>
                     <div class="skill-bar"><div class="skill-fill violet"></div></div>
@@ -2174,12 +2664,15 @@
         <div class="section-header fade-up">
             <h2 class="section-title">💼 Expérience & Formation</h2>
         </div>
+
         <div class="timeline">
             <div class="timeline-item fade-up">
                 <div class="timeline-content">
                     <div class="timeline-card">
                         <div class="timeline-header">
-                            <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+                            <div class="timeline-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
                             <div class="timeline-info">
                                 <h3>ZOMOTRAV – Casablanca</h3>
                                 <span class="timeline-badge">Développeur IT Interne | 2025 • 6 mois</span>
@@ -2191,11 +2684,14 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-spacer"></div>
             </div>
+
             <div class="timeline-item fade-up">
                 <div class="timeline-content">
                     <div class="timeline-card indigo">
                         <div class="timeline-header">
-                            <div class="timeline-icon indigo"><i class="fas fa-laptop-code"></i></div>
+                            <div class="timeline-icon indigo">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
                             <div class="timeline-info">
                                 <h3>Commune Urbaine Safi</h3>
                                 <span class="timeline-badge">Technicien Support IT | 2024 • 1 mois</span>
@@ -2207,11 +2703,14 @@
                 <div class="timeline-dot indigo"></div>
                 <div class="timeline-spacer"></div>
             </div>
+
             <div class="timeline-item fade-up">
                 <div class="timeline-content">
                     <div class="timeline-card purple">
                         <div class="timeline-header">
-                            <div class="timeline-icon purple"><i class="fas fa-network-wired"></i></div>
+                            <div class="timeline-icon purple">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
                             <div class="timeline-info">
                                 <h3>SATNET – Safi</h3>
                                 <span class="timeline-badge">Technicien Réseaux & Câblage | 2023 • 1 mois</span>
@@ -2228,7 +2727,9 @@
         <div class="edu-lang-grid fade-up">
             <div class="info-card">
                 <div class="info-card-header">
-                    <div class="info-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="info-card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
                     <h3 class="info-card-title">🎓 Formation</h3>
                 </div>
                 <div class="edu-item">
@@ -2240,21 +2741,33 @@
                     <div class="edu-place">2022</div>
                 </div>
             </div>
+
             <div class="info-card">
                 <div class="info-card-header">
-                    <div class="info-card-icon indigo"><i class="fas fa-language"></i></div>
+                    <div class="info-card-icon indigo">
+                        <i class="fas fa-language"></i>
+                    </div>
                     <h3 class="info-card-title">🌍 Langues</h3>
                 </div>
                 <div class="lang-item" data-percent="100">
-                    <div class="lang-header"><span class="lang-name">🇲🇦 Arabe</span><span class="lang-level">Langue Maternelle</span></div>
+                    <div class="lang-header">
+                        <span class="lang-name">🇲🇦 Arabe</span>
+                        <span class="lang-level">Langue Maternelle</span>
+                    </div>
                     <div class="lang-bar"><div class="lang-fill"></div></div>
                 </div>
                 <div class="lang-item" data-percent="65">
-                    <div class="lang-header"><span class="lang-name">🇫🇷 Français</span><span class="lang-level">B1 (Technique)</span></div>
+                    <div class="lang-header">
+                        <span class="lang-name">🇫🇷 Français</span>
+                        <span class="lang-level">B1 (Technique)</span>
+                    </div>
                     <div class="lang-bar"><div class="lang-fill"></div></div>
                 </div>
                 <div class="lang-item" data-percent="50">
-                    <div class="lang-header"><span class="lang-name">🇬🇧 Anglais</span><span class="lang-level">Technique (Documentation)</span></div>
+                    <div class="lang-header">
+                        <span class="lang-name">🇬🇧 Anglais</span>
+                        <span class="lang-level">Technique (Documentation)</span>
+                    </div>
                     <div class="lang-bar"><div class="lang-fill"></div></div>
                 </div>
             </div>
@@ -2270,7 +2783,9 @@
         </div>
         <div class="services-grid">
             <div class="card service-card fade-up">
-                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
                 <h3 class="service-title">Développement Web <i class="fas fa-arrow-up-right-from-square"></i></h3>
                 <p class="service-desc">Sites vitrines, applications full-stack, interfaces modernes et responsives. HTML/CSS/JS, PHP/MySQL, optimisation SEO et performance.</p>
                 <div class="service-tags">
@@ -2280,8 +2795,11 @@
                     <span class="service-tag">Conception BDD</span>
                 </div>
             </div>
+
             <div class="card service-card fade-up">
-                <div class="service-icon"><i class="fas fa-plug"></i></div>
+                <div class="service-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
                 <h3 class="service-title">Infrastructure Réseau <i class="fas fa-arrow-up-right-from-square"></i></h3>
                 <p class="service-desc">Conception et déploiement de réseaux câblés, configuration d'équipements, diagnostic et sécurisation d'infrastructure IT.</p>
                 <div class="service-tags">
@@ -2291,8 +2809,11 @@
                     <span class="service-tag">Diagnostic</span>
                 </div>
             </div>
+
             <div class="card service-card fade-up">
-                <div class="service-icon"><i class="fas fa-headset"></i></div>
+                <div class="service-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
                 <h3 class="service-title">Support IT & Conseil <i class="fas fa-arrow-up-right-from-square"></i></h3>
                 <p class="service-desc">Assistance technique, maintenance, audit réseau, conseil en solutions informatiques adaptées aux entreprises.</p>
                 <div class="service-tags">
@@ -2309,67 +2830,271 @@
 <section id="projects" class="projects">
     <div class="container">
         <div class="section-header fade-up">
-            <h2 class="section-title">🚀 Derniers Projets</h2>
-            <p class="section-subtitle">Un aperçu de mes réalisations récentes</p>
+            <h2 class="section-title">🚀 Mes Projets</h2>
+            <p class="section-subtitle">Applications complètes développées de A à Z</p>
         </div>
-        <div class="projects-grid">
-            <div class="project-card fade-up">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fas fa-globe"></i></div>
-                    <h3 class="project-title">Portfolio Intelligent 2025</h3>
+        
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- Projet 1: Gestion de Projet -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <div class="project-showcase fade-up">
+            <div class="project-showcase-image">
+                <!-- 📸 أضف رابط الصورة هنا -->
+                <img src="https://github.com/said-aboussourhra/Portfolio/raw/main/projects/gestion-projet.png" 
+                     alt="Gestion de Projet"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="project-image-placeholder">
+                    <i class="fas fa-tasks"></i>
+                    <span>Gestion de Projet</span>
                 </div>
-                <div class="project-body">
-                    <p class="project-desc">Portfolio dynamique avec animations, design clair, intégration des stats GitHub et formulaire de contact moderne.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML/CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Responsive</span>
-                        <span class="project-tag">Animations</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="project-btn project-btn-primary"><i class="fas fa-external-link-alt"></i> Démo</button>
-                        <button class="project-btn project-btn-secondary"><i class="fab fa-github"></i> Code</button>
-                    </div>
+                <div class="project-overlay">
+                    <a href="#" class="project-overlay-btn" title="Voir Démo">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="#" class="project-overlay-btn" title="Code Source">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
-            </div>
-            <div class="project-card fade-up">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3 class="project-title">Dashboard Supervision Réseau</h3>
-                </div>
-                <div class="project-body">
-                    <p class="project-desc">Dashboard PHP/MySQL pour la supervision de périphériques réseau, alertes en temps réel et journalisation.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">PHP</span>
-                        <span class="project-tag">MySQL</span>
-                        <span class="project-tag">Temps Réel</span>
-                        <span class="project-tag">Dashboard</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="project-btn project-btn-primary"><i class="fas fa-external-link-alt"></i> Démo</button>
-                        <button class="project-btn project-btn-secondary"><i class="fab fa-github"></i> Code</button>
-                    </div>
+                <div class="project-badge-status">
+                    <i class="fas fa-check-circle"></i> Terminé
                 </div>
             </div>
-            <div class="project-card fade-up">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <h3 class="project-title">Backend E-commerce (PHP)</h3>
+            <div class="project-showcase-content">
+                <div class="project-showcase-header">
+                    <span class="project-category">
+                        <i class="fas fa-folder-open"></i> Application Web
+                    </span>
+                    <h3 class="project-showcase-title">
+                        <i class="fas fa-tasks"></i> Gestion de Projet
+                    </h3>
                 </div>
-                <div class="project-body">
-                    <p class="project-desc">Gestion de catalogue, panier, authentification sécurisée – architecture MVC maison.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">PHP</span>
-                        <span class="project-tag">MVC</span>
-                        <span class="project-tag">MySQL</span>
-                        <span class="project-tag">Authentification</span>
+                <p class="project-showcase-desc">
+                    Application complète de gestion de projets permettant de créer, suivre et organiser les tâches d'équipe. 
+                    Interface intuitive avec tableau de bord, suivi d'avancement en temps réel et système de notifications.
+                </p>
+                <div class="project-features">
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Création et gestion des projets</span>
                     </div>
-                    <div class="project-actions">
-                        <button class="project-btn project-btn-primary"><i class="fas fa-external-link-alt"></i> Démo</button>
-                        <button class="project-btn project-btn-secondary"><i class="fab fa-github"></i> Code</button>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Attribution des tâches aux membres</span>
                     </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Tableau de bord avec statistiques</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Système d'authentification sécurisé</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Suivi d'avancement en pourcentage</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Gestion des deadlines et priorités</span>
+                    </div>
+                </div>
+                <div class="project-tech-stack">
+                    <span class="tech-badge php"><i class="fab fa-php"></i> PHP</span>
+                    <span class="tech-badge mysql"><i class="fas fa-database"></i> MySQL</span>
+                    <span class="tech-badge html"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="tech-badge css"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="tech-badge js"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tech-badge bootstrap"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                </div>
+                <div class="project-showcase-actions">
+                    <!-- 🔗 أضف روابطك هنا -->
+                    <a href="#" class="btn-project-demo">
+                        <i class="fas fa-external-link-alt"></i> Voir la Démo
+                    </a>
+                    <a href="#" class="btn-project-code">
+                        <i class="fab fa-github"></i> Code Source
+                    </a>
                 </div>
             </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- Projet 2: Location de Voiture -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <div class="project-showcase fade-up reverse">
+            <div class="project-showcase-image">
+                <!-- 📸 أضف رابط الصورة هنا -->
+                <img src="https://github.com/said-aboussourhra/Portfolio/raw/main/projects/location-voiture.png" 
+                     alt="Location de Voiture"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="project-image-placeholder purple">
+                    <i class="fas fa-car"></i>
+                    <span>Location de Voiture</span>
+                </div>
+                <div class="project-overlay">
+                    <a href="#" class="project-overlay-btn" title="Voir Démo">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="#" class="project-overlay-btn" title="Code Source">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="project-badge-status success">
+                    <i class="fas fa-check-circle"></i> Terminé
+                </div>
+            </div>
+            <div class="project-showcase-content">
+                <div class="project-showcase-header">
+                    <span class="project-category purple">
+                        <i class="fas fa-folder-open"></i> Application Web
+                    </span>
+                    <h3 class="project-showcase-title purple">
+                        <i class="fas fa-car"></i> Location de Voiture
+                    </h3>
+                </div>
+                <p class="project-showcase-desc">
+                    Plateforme de location de véhicules avec système de réservation en ligne. 
+                    Gestion complète du parc automobile, des clients, des contrats et des paiements avec tableau de bord administrateur.
+                </p>
+                <div class="project-features">
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Catalogue de véhicules avec filtres</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Système de réservation en ligne</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Gestion des clients et contrats</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Calcul automatique des tarifs</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Disponibilité en temps réel</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Rapports et statistiques</span>
+                    </div>
+                </div>
+                <div class="project-tech-stack">
+                    <span class="tech-badge php"><i class="fab fa-php"></i> PHP</span>
+                    <span class="tech-badge mysql"><i class="fas fa-database"></i> MySQL</span>
+                    <span class="tech-badge html"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="tech-badge css"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="tech-badge js"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tech-badge ajax"><i class="fas fa-sync"></i> AJAX</span>
+                </div>
+                <div class="project-showcase-actions">
+                    <!-- 🔗 أضف روابطك هنا -->
+                    <a href="#" class="btn-project-demo purple">
+                        <i class="fas fa-external-link-alt"></i> Voir la Démo
+                    </a>
+                    <a href="#" class="btn-project-code">
+                        <i class="fab fa-github"></i> Code Source
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- Projet 3: Gestion de Stock -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <div class="project-showcase fade-up">
+            <div class="project-showcase-image">
+                <!-- 📸 أضف رابط الصورة هنا -->
+                <img src="https://github.com/said-aboussourhra/Portfolio/raw/main/projects/gestion-stock.png" 
+                     alt="Gestion de Stock"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="project-image-placeholder indigo">
+                    <i class="fas fa-boxes"></i>
+                    <span>Gestion de Stock</span>
+                </div>
+                <div class="project-overlay">
+                    <a href="#" class="project-overlay-btn" title="Voir Démo">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="#" class="project-overlay-btn" title="Code Source">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="project-badge-status success">
+                    <i class="fas fa-check-circle"></i> Terminé
+                </div>
+            </div>
+            <div class="project-showcase-content">
+                <div class="project-showcase-header">
+                    <span class="project-category indigo">
+                        <i class="fas fa-folder-open"></i> Application Web
+                    </span>
+                    <h3 class="project-showcase-title indigo">
+                        <i class="fas fa-boxes"></i> Gestion de Stock
+                    </h3>
+                </div>
+                <p class="project-showcase-desc">
+                    Système complet de gestion d'inventaire et de stock pour entreprises. 
+                    Suivi des entrées/sorties, alertes de stock bas, gestion des fournisseurs et génération de rapports détaillés.
+                </p>
+                <div class="project-features">
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Gestion des produits et catégories</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Suivi des entrées et sorties</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Alertes de stock minimum</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Gestion des fournisseurs</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Historique des mouvements</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Export PDF et Excel</span>
+                    </div>
+                </div>
+                <div class="project-tech-stack">
+                    <span class="tech-badge php"><i class="fab fa-php"></i> PHP</span>
+                    <span class="tech-badge mysql"><i class="fas fa-database"></i> MySQL</span>
+                    <span class="tech-badge html"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="tech-badge css"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="tech-badge js"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tech-badge pdf"><i class="fas fa-file-pdf"></i> PDF Export</span>
+                </div>
+                <div class="project-showcase-actions">
+                    <!-- 🔗 أضف روابطك هنا -->
+                    <a href="#" class="btn-project-demo indigo">
+                        <i class="fas fa-external-link-alt"></i> Voir la Démo
+                    </a>
+                    <a href="#" class="btn-project-code">
+                        <i class="fab fa-github"></i> Code Source
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="projects-cta fade-up">
+            <div class="projects-cta-content">
+                <h3><i class="fas fa-rocket"></i> Vous avez un projet en tête ?</h3>
+                <p>Je suis disponible pour transformer vos idées en applications fonctionnelles</p>
+            </div>
+            <a href="#contact" class="btn-primary">
+                <i class="fas fa-paper-plane"></i> Discutons-en
+            </a>
         </div>
     </div>
 </section>
@@ -2405,21 +3130,29 @@
         <div class="contact-grid">
             <div class="contact-info fade-up">
                 <div class="contact-item">
-                    <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-item-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <div>
                         <div class="contact-item-title">Email</div>
-                        <div class="contact-item-text"><a href="mailto:s01said@outlook.fr">s01said@outlook.fr</a></div>
+                        <div class="contact-item-text">
+                            <a href="mailto:s01said@outlook.fr">s01said@outlook.fr</a>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-item-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <div>
                         <div class="contact-item-title">Localisation</div>
                         <div class="contact-item-text">Safi, Maroc 🇲🇦</div>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="contact-item-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="contact-item-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
                     <div>
                         <div class="contact-item-title">Disponibilité</div>
                         <div class="contact-item-text">🚀 Disponible immédiatement – Télétravail ou Présentiel</div>
@@ -2428,15 +3161,23 @@
                 <div class="social-card">
                     <div class="social-title">🔗 Suivez-Moi</div>
                     <div class="social-links">
-                        <a href="https://github.com/said-aboussourhra" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/said-aboussourhra" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="contact-form-wrapper fade-up">
                 <h3 class="contact-form-title">Envoyer un Message ✨</h3>
-                <p class="contact-form-subtitle"><i class="fab fa-github"></i> Messages envoyés directement à mon GitHub</p>
+                <p class="contact-form-subtitle">
+                    <i class="fab fa-github"></i> Messages envoyés directement à mon GitHub
+                </p>
                 <form id="contactForm">
                     <div class="form-group">
                         <i class="fas fa-user input-icon"></i>
@@ -2494,14 +3235,21 @@
 <script>
 const FORMSPREE_ID = 'xojzwadv';
 
+// ═══════════════════════════════════════════════════════════════
+// دوال إشعار التحميل - مُصحَّحة ✅
+// ═══════════════════════════════════════════════════════════════
 function showDownloadToast() {
     const toast = document.getElementById('downloadToast');
-    if (toast) toast.classList.add('show');
+    if (toast) {
+        toast.classList.add('show');
+    }
 }
 
 function hideDownloadToast() {
     const toast = document.getElementById('downloadToast');
-    if (toast) toast.classList.remove('show');
+    if (toast) {
+        toast.classList.remove('show');
+    }
 }
 
 function createParticles() {
@@ -2558,30 +3306,34 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // ═══════════════════════════════════════════════════════════════
-// ✅ زر تحميل CV - مصحح
+// منطق زر تحميل CV - مُصحَّح ✅
 // ═══════════════════════════════════════════════════════════════
 const cvBtn = document.getElementById('cvBtn');
 const cvBtnText = document.getElementById('cvBtnText');
+const downloadToast = document.getElementById('downloadToast');
 
 if (cvBtn) {
     cvBtn.addEventListener('click', function(e) {
-        // ✅ هذا يمنع أي كود آخر من منع التحميل
-        e.stopPropagation();
-
         const icon = this.querySelector('i');
         this.classList.add('downloading');
         icon.className = 'fas fa-spinner fa-spin';
         if (cvBtnText) cvBtnText.textContent = 'Téléchargement...';
-
+        
         setTimeout(() => {
             this.classList.remove('downloading');
             this.classList.add('downloaded');
             icon.className = 'fas fa-check';
             if (cvBtnText) cvBtnText.textContent = 'Téléchargé !';
-
+            
+            // إظهار الإشعار
             showDownloadToast();
-            setTimeout(() => hideDownloadToast(), 4000);
-
+            
+            // إخفاء الإشعار تلقائياً بعد 4 ثوانٍ
+            setTimeout(() => {
+                hideDownloadToast();
+            }, 4000);
+            
+            // إعادة الزر لحالته الأصلية
             setTimeout(() => {
                 this.classList.remove('downloaded');
                 icon.className = 'fas fa-download';
@@ -2596,7 +3348,7 @@ const submitBtn = document.getElementById('submitBtn');
 const formFeedback = document.getElementById('formFeedback');
 
 function showFeedback(type, message, duration = 6000) {
-    formFeedback.className = form-feedback ${type};
+    formFeedback.className = `form-feedback ${type}`;
     formFeedback.innerHTML = message;
     if (duration > 0) {
         setTimeout(() => { formFeedback.className = 'form-feedback'; }, duration);
@@ -2604,7 +3356,7 @@ function showFeedback(type, message, duration = 6000) {
 }
 
 async function sendToFormspree(name, email, subject, message) {
-    const response = await fetch(https://formspree.io/f/${FORMSPREE_ID}, {
+    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -2615,7 +3367,7 @@ async function sendToFormspree(name, email, subject, message) {
             email: email,
             subject: subject || 'Nouveau message du portfolio',
             message: message,
-            _subject: Portfolio Contact: ${subject || 'Nouveau Message'} de ${name},
+            _subject: `Portfolio Contact: ${subject || 'Nouveau Message'} de ${name}`,
             _replyto: email
         })
     });
@@ -2629,7 +3381,7 @@ async function sendToFormspree(name, email, subject, message) {
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+    
     const name = document.getElementById('nameInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
     const subjectInput = document.getElementById('subjectInput');
@@ -2651,15 +3403,19 @@ contactForm.addEventListener('submit', async (e) => {
 
     try {
         await sendToFormspree(name, email, subject, message);
+        
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
-        showFeedback('success', <i class="fas fa-check-circle"></i> Merci ${name} ! Votre message a été envoyé. Je vous répondrai sous 24h. 🚀);
+        
+        showFeedback('success', `<i class="fas fa-check-circle"></i> Merci ${name} ! Votre message a été envoyé. Je vous répondrai sous 24h. 🚀`);
         contactForm.reset();
+        
     } catch (error) {
         console.error('Erreur:', error);
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
-        showFeedback('error', <i class="fas fa-exclamation-triangle"></i> Erreur. Contactez-moi à <a href="mailto:s01said@outlook.fr" style="color:#dc2626;text-decoration:underline;font-weight:700;">s01said@outlook.fr</a>, 8000);
+        
+        showFeedback('error', `<i class="fas fa-exclamation-triangle"></i> Erreur. Contactez-moi à <a href="mailto:s01said@outlook.fr" style="color:#dc2626;text-decoration:underline;font-weight:700;">s01said@outlook.fr</a>`, 8000);
     }
 });
 
@@ -2667,21 +3423,21 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('appear');
-
+            
             entry.target.querySelectorAll('.skill-item').forEach((item, i) => {
                 setTimeout(() => {
                     const fill = item.querySelector('.skill-fill');
                     if (fill) fill.style.width = item.dataset.percent + '%';
                 }, i * 100);
             });
-
+            
             entry.target.querySelectorAll('.lang-item').forEach((item, i) => {
                 setTimeout(() => {
                     const fill = item.querySelector('.lang-fill');
                     if (fill) fill.style.width = item.dataset.percent + '%';
                 }, i * 150);
             });
-
+            
             observer.unobserve(entry.target);
         }
     });
@@ -2689,7 +3445,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// ✅ smooth scroll - لا يتدخل في التحميل بسبب hasAttribute('download')
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
         if (this.hasAttribute('download')) return;
